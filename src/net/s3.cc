@@ -22,16 +22,17 @@ using namespace storage;
 
 const static std::string UNSIGNED_PAYLOAD = "UNSIGNED-PAYLOAD";
 static std::string token = "";
+static std::string minio_ip = "ec2-35-175-131-25.compute-1.amazonaws.com";
 
 std::string S3::endpoint( const string & region, const string & bucket )
 {
-  if(bucket.empty())return "ec2-34-200-223-152.compute-1.amazonaws.com";
+  if(bucket.empty())return minio_ip;
   if ( region == "us-east-1" ) {
     // return bucket + ".s3.amazonaws.com";
-    return "ec2-34-200-223-152.compute-1.amazonaws.com";
+    return minio_ip;
   }
   else {
-    return "ec2-34-200-223-152.compute-1.amazonaws.com";
+    return minio_ip;
   }
 }
 
