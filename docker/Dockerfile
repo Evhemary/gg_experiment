@@ -2,7 +2,7 @@
 ARG UBUNTU_VERSION
 FROM ubuntu:$UBUNTU_VERSION as build-env
 
-MAINTAINER sadjad "https://github.com/sadjad"
+MAINTAINER sadjad "https://github.com/Evhemary"
 
 RUN apt-get update -qq
 RUN apt-get install -y -q gcc-7 g++-7 libcap-dev libncurses5-dev \
@@ -16,7 +16,8 @@ RUN update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-7 99
 RUN update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-7 99
 
 RUN mkdir /app
-COPY . /app/gg
+#COPY . /app/gg
+RUN git clone https://github.com/Evhemary/gg_experiment.git /app
 
 ENV LANG C.UTF-8
 ENV LANGUAGE C:en
@@ -40,3 +41,4 @@ RUN apt-get install -y -q ffmpeg
 
 # deps for LLVM example
 RUN apt-get install -y -q cmake
+
