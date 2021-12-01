@@ -17,7 +17,7 @@ RUN update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-7 99
 
 RUN mkdir /app
 #COPY . /app/gg
-RUN git clone https://github.com/Evhemary/gg_experiment.git /app
+RUN git clone https://github.com/Evhemary/gg_experiment.git /app/gg
 
 ENV LANG C.UTF-8
 ENV LANGUAGE C:en

@@ -9,15 +9,15 @@ services:
       args:
         UBUNTU_VERSION: '18.04'
     volumes:
-      - .:/app/gg:cached
+      - ./docker_excamera:/app/gg:cached
       - ~/.ssh:/root/.ssh:ro
     tmpfs:
       - /tmp
     environment:
       - HISTFILE=/bundle/.bash_history
       - PRY_HISTFILE=/bundle/.pry_history
-      - GG_MODELPATH=/app/gg_experiment/src/models/wrappers
-      - EXCAMERA_BIN_DIR=/app/gg_experiment/examples/excamera/excamera-static-bins
+      - GG_MODELPATH=/app/gg/src/models/wrappers
+      - EXCAMERA_BIN_DIR=/app/gg/examples/excamera/excamera-static-bins
     env_file:
       - .env
     networks:
