@@ -23,8 +23,6 @@ ENV LANG C.UTF-8
 ENV LANGUAGE C:en
 ENV LC_ALL C.UTF-8
 
-WORKDIR /app/gg
-
 # sandbox-env stage
 FROM build-env as sandbox-env
 
@@ -40,5 +38,10 @@ RUN apt-get install -y -q vim wget unzip
 RUN apt-get install -y -q ffmpeg
 
 # deps for LLVM example
-RUN apt-get install -y -q cmake
+#RUN apt-get install -y -q cmake
+RUN wget https://cmake.org/files/v3.16/cmake-3.16.3-Linux-x86_64.tar.gz \
+    && tar -zxvf cmake-3.16.3-Linux-x86_64.tar.gz \
+    && mv cmake-3.16.3-Linux-x86_64 cmake-3.16.3 \
+    && ln -sf /cmake-3.16.3/bin/* /usr/bin
 
+WORKDIR /app/gg
