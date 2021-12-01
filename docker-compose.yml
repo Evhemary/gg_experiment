@@ -16,7 +16,8 @@ services:
     environment:
       - HISTFILE=/bundle/.bash_history
       - PRY_HISTFILE=/bundle/.pry_history
-      - GG_MODELPATH=/app/gg/src/models/wrappers
+      - GG_MODELPATH=/app/gg_experiment/src/models/wrappers
+      - EXCAMERA_BIN_DIR=/app/gg_experiment/examples/excamera/excamera-static-bins
     env_file:
       - .env
     networks:
