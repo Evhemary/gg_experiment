@@ -14,11 +14,13 @@ S3StorageBackend::S3StorageBackend( const AWSCredentials & credentials,
 void S3StorageBackend::put( const std::vector<PutRequest> & requests,
                             const PutCallback & success_callback )
 {
-  client_.upload_files( "ggfunbucket", requests, success_callback );
+  std::string bucket = safe_getenv("GG_MINIO_BUCKET");
+  client_.upload_files( bucket, requests, success_callback );
 }
 
 void S3StorageBackend::get( const std::vector<GetRequest> & requests,
                             const GetCallback & success_callback )
 {
-  client_.download_files( "ggfunbucket", requests, success_callback );
+  std::string bucket = safe_getenv("GG_MINIO_BUCKET");
+  client_.download_files( bucket, requests, success_callback );
 }

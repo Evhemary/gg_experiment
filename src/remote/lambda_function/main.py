@@ -29,6 +29,7 @@ def is_hash_for_thunk(hash):
 
 def handler(event, context):
     # print(event['storageBackend'])
+    os.environ['GG_MINIO_BUCKET'] = 'ggfunbucket'
     os.environ['GG_STORAGE_URI'] = event['storageBackend']
     thunks = event['thunks']
     timelog = event.get('timelog')

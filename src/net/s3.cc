@@ -16,16 +16,20 @@
 #include "awsv4_sig.hh"
 #include "util/exception.hh"
 #include "util/temp_file.hh"
+#include "util/uri.hh"
 
 using namespace std;
 using namespace storage;
 
 const static std::string UNSIGNED_PAYLOAD = "UNSIGNED-PAYLOAD";
 static std::string token = "";
-static std::string minio_ip = "ec2-35-175-131-25.compute-1.amazonaws.com";
+// static std::string minio_ip = "ec2-34-231-20-47.compute-1.amazonaws.com";
 
 std::string S3::endpoint( const string & region, const string & bucket )
 {
+  std::string minio_url = safe_getenv("GG_STORAGE_URI");
+  ParsedURI endpoint { minio_url };
+  std::string minio_ip = endpoint.host;
   if(bucket.empty())return minio_ip;
   if ( region == "us-east-1" ) {
     // return bucket + ".s3.amazonaws.com";

@@ -129,7 +129,7 @@ def main():
         hashes = [f[0] for f in function_execs]
 
         if len(function_execs) == 0:
-            function_name = "gg-%s-function-minio" % label
+            function_name = "gg-%s-yanxiang-function-minio" % label
         else:
             function_name = "{prefix}{exechash}".format(
                 prefix="gg-", exechash=executable_hash(hashes)
