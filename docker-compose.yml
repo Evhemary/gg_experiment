@@ -9,7 +9,7 @@ services:
       args:
         UBUNTU_VERSION: '18.04'
     volumes:
-      - ./docker_excamera:/app/gg:cached
+      - ./docker_excamera:/app/gg/examples/excamera/avi/:cached
       - ~/.ssh:/root/.ssh:ro
     tmpfs:
       - /tmp

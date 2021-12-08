@@ -60,6 +60,7 @@ public:
     /* getters */
     bool empty() const { return complete_messages_.empty(); }
     const MessageType & front() const { return complete_messages_.front(); }
+    unsigned int size() const {return complete_messages_.size();}
 
     /* pop one request */
     void pop() { complete_messages_.pop(); }

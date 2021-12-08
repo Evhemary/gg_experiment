@@ -268,7 +268,9 @@ void S3Client::download_files( const std::string & bucket,
             while ( response_count < expected_responses ) {
               /* drain responses */
               // printf("wait: %s\n",s.c_str());
-              responses.parse( s3.read() );
+              if(response_count + responses.size() < expected_responses){
+                responses.parse(s3.read());
+              }
               if ( not responses.empty() ) {
                 if ( responses.front().first_line() != "HTTP/1.1 200 OK" ) {
                   const size_t response_index = first_file_idx + response_count * thread_count;
